@@ -240,7 +240,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9055685711891642514}
-  - component: {fileID: 1828873855387218187}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -266,25 +265,6 @@ Transform:
   - {fileID: 1175584972386285679}
   m_Father: {fileID: 6734347342983155764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1828873855387218187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3813674841732459896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7df4d49e60effea40b0358d6f26f72b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
-  damage: 1
-  curAmmo: 20
-  maxAmmo: 40
-  bulletSpeed: 50
-  shootRate: 2
-  bulletPrefab: {fileID: 4983307974388747700, guid: e3f362931408b0b4a98a6383868106f9, type: 3}
-  bulletSpawnPos: {fileID: 1175584972386285679}
 --- !u!1 &4896173594332237685
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +369,7 @@ GameObject:
   - component: {fileID: 2964713166114041803}
   - component: {fileID: 2032221774241682639}
   - component: {fileID: 3558343417345572716}
+  - component: {fileID: 6995380911842032472}
   - component: {fileID: 8300891526640309449}
   - component: {fileID: 7382441882278399201}
   m_Layer: 0
@@ -543,7 +524,26 @@ MonoBehaviour:
   mr: {fileID: 3491250276869313899}
   rig: {fileID: 2032221774241682639}
   id: 0
-  weapon: {fileID: 1828873855387218187}
+  weapon: {fileID: 6995380911842032472}
+--- !u!114 &6995380911842032472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278816445933392279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df4d49e60effea40b0358d6f26f72b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
+  damage: 1
+  curAmmo: 25
+  maxAmmo: 50
+  bulletSpeed: 50
+  shootRate: 1.5
+  bulletPrefab: {fileID: 4983307974388747700, guid: e3f362931408b0b4a98a6383868106f9, type: 3}
+  bulletSpawnPos: {fileID: 1175584972386285679}
 --- !u!114 &8300891526640309449
 MonoBehaviour:
   m_ObjectHideFlags: 0
