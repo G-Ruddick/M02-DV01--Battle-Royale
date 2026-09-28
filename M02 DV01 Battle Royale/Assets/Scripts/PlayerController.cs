@@ -116,8 +116,9 @@ public class PlayerController : MonoBehaviourPun {
             GameManager.instance.CheckWinCondition();
         
         if (photonView.IsMine) {
-            if (curAttackId != 0)
+            if (curAttackId != 0) {
                 GameManager.instance.GetPlayer(curAttackId).photonView.RPC("AddKill", RpcTarget.All);
+            }
             
             GetComponentInChildren<CameraController>().SetAsSpectator();
 
