@@ -131,4 +131,9 @@ public class PlayerController : MonoBehaviourPun {
     public void AddKill () {
         kills++;
     }
+
+    [PunRPC]
+    public void Heal (int amountToHeal) {
+        curHp = Mathf.Clamp(curHp + amountToHeal, 0, maxHp);
+    }
 }

@@ -42,4 +42,9 @@ public class PlayerWeapon : MonoBehaviour {
         bulletScript.Initialize(damage, player.id, player.photonView.IsMine);
         bulletScript.rig.linearVelocity = dir * bulletSpeed;
     }
+
+    [PunRPC]
+    public void GiveAmmo (int amountToGive) {
+        curAmmo = Mathf.Clamp(curAmmo + amountToGive, 0, maxAmmo);
+    }
 }
