@@ -152,7 +152,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 9055685711891642514}
   m_Father: {fileID: 6734347342983155764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7207515311386223873
@@ -256,14 +257,14 @@ Transform:
   m_GameObject: {fileID: 3813674841732459896}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.278, z: -0.419}
+  m_LocalPosition: {x: 0, y: -1.278, z: -0.419}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2711579425652939542}
   - {fileID: 5943817866982933471}
   - {fileID: 1175584972386285679}
-  m_Father: {fileID: 6734347342983155764}
+  m_Father: {fileID: 6619845334844976714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4896173594332237685
 GameObject:
@@ -393,7 +394,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6619845334844976714}
-  - {fileID: 9055685711891642514}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2644295628810311925
@@ -537,11 +537,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df4d49e60effea40b0358d6f26f72b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
-  damage: 25
+  damage: 20
   curAmmo: 15
   maxAmmo: 50
   bulletSpeed: 50
-  shootRate: 0.75
+  shootRate: 0.1
   bulletPrefab: {fileID: 4983307974388747700, guid: e3f362931408b0b4a98a6383868106f9, type: 3}
   bulletSpawnPos: {fileID: 1175584972386285679}
 --- !u!114 &8300891526640309449

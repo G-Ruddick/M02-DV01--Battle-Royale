@@ -42,11 +42,23 @@ public class GameManager : MonoBehaviourPun {
     }
 
     public PlayerController GetPlayer (int playerId) {
-        return players.First(x => x.id == playerId);
+        foreach (PlayerController player in players) {
+            if (player != null && player.id == playerId) {
+                return player;
+            }
+        }
+
+        return null;
     }
 
     public PlayerController GetPlayer (GameObject playerObj) {
-        return players.First(x => x.gameObject == playerObj);
+        foreach (PlayerController player in players) {
+            if (player != null && player.gameObject == playerObj) {
+                return player;
+            }
+        }
+
+        return null;
     }
 
     public void CheckWinCondition () {
@@ -56,6 +68,7 @@ public class GameManager : MonoBehaviourPun {
 
     [PunRPC]
     void WinGame (int winningPlayer) {
+        GameUI.instance.SetWinText(GetPlayer(winningPlayer).photonPlayer.NickName);
         Invoke("GoBackToMenu", postGameTime);
     }
 

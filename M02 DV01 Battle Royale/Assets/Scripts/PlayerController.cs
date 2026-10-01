@@ -67,6 +67,9 @@ public class PlayerController : MonoBehaviourPun {
             GetComponentInChildren<Camera>().gameObject.SetActive(false);
             rig.isKinematic = true;
         }
+        else {
+            GameUI.instance.Initialize(this);
+        }
     }
 
     [PunRPC]
@@ -83,6 +86,8 @@ public class PlayerController : MonoBehaviourPun {
         if (curHp <= 0) {
             photonView.RPC("Die", RpcTarget.All);
         }
+
+        GameUI.instance.UpdateHealthBar();
     }
 
     [PunRPC]
@@ -130,10 +135,14 @@ public class PlayerController : MonoBehaviourPun {
     [PunRPC]
     public void AddKill () {
         kills++;
+
+        GameUI.instance.UpdatePlayerInfoText();
     }
 
     [PunRPC]
     public void Heal (int amountToHeal) {
         curHp = Mathf.Clamp(curHp + amountToHeal, 0, maxHp);
+
+        GameUI.instance.UpdateHealthBar();
     }
 }

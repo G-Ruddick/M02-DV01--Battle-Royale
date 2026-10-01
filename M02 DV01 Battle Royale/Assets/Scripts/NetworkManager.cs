@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -9,7 +11,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 
     private void Awake() {
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
     private void Start() {
@@ -18,6 +20,20 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
 
     public override void OnConnectedToMaster() {
         Debug.Log("Connected to master server.");
+        PhotonNetwork.JoinLobby();
+    }
+
+    public override void OnDisconnected(DisconnectCause cause) {
+        PhotonNetwork.LoadLevel("Menu");
+    }
+
+    public override void OnPlayerLeftRoom (Player otherPlayer) {
+        GameManager.instance.alivePlayers--;
+        GameUI.instance.UpdatePlayerInfoText();
+
+        if (PhotonNetwork.IsMasterClient) {
+            GameManager.instance.CheckWinCondition();
+        }
     }
 
     public void CreateRoom(string roomName) {
