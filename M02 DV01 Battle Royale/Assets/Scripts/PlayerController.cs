@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviourPun {
     public PlayerWeapon weaponSecondary;
     public PlayerWeapon activeWeapon;
 
+    private void Start() {
+        ChangeWeapon(1);
+    }
+
     private void Update() {
         if (!photonView.IsMine || dead) {
             return;
@@ -42,11 +46,11 @@ public class PlayerController : MonoBehaviourPun {
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             Debug.Log("Swapped weapons");
-            photonView.RPC("ChangeWeapon", RpcTarget.Others, 1);
+            photonView.RPC("ChangeWeapon", RpcTarget.All, 1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2)) {
             Debug.Log("Swapped weapons");
-            photonView.RPC("ChangeWeapon", RpcTarget.Others, 2);
+            photonView.RPC("ChangeWeapon", RpcTarget.All, 2);
         }
     }
 
@@ -165,7 +169,7 @@ public class PlayerController : MonoBehaviourPun {
 
     [PunRPC]
     public void ChangeWeapon(int index) {
-        activeWeapon.gameObject.SetActive(false);
+        activeWeapon.weaponObj.SetActive(false);
         
         if (index == 1) {
             activeWeapon = weaponMain;
@@ -174,6 +178,6 @@ public class PlayerController : MonoBehaviourPun {
             activeWeapon = weaponSecondary;
         }
 
-        activeWeapon.gameObject.SetActive(true);
+        activeWeapon.weaponObj.SetActive(true);
     }
 }

@@ -189,6 +189,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6189545915625785115}
+  - component: {fileID: 556828245251301006}
+  - component: {fileID: 6326248924503353451}
   m_Layer: 0
   m_Name: Bazooka
   m_TagString: Untagged
@@ -221,6 +223,49 @@ Transform:
   - {fileID: 4486878704238939677}
   m_Father: {fileID: 5158228379050091486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.733}
+--- !u!114 &556828245251301006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431748817792585595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df4d49e60effea40b0358d6f26f72b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
+  damage: 50
+  curAmmo: 3
+  maxAmmo: 5
+  bulletSpeed: 50
+  shootRate: 3
+  player: {fileID: 3558343417345572716}
+  weaponObj: {fileID: 1431748817792585595}
+  bulletPrefab: {fileID: 657742456314831985, guid: d756da8be8093454aa75e1e37b9c191b, type: 3}
+  bulletSpawnPos: {fileID: 4486878704238939677}
+--- !u!114 &6326248924503353451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431748817792585595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1599715800946700026
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +452,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.0135, z: 1.128}
-  m_LocalScale: {x: 0.06833341, y: 0.07877141, z: 0.15006791}
+  m_LocalScale: {x: 0.06833341, y: 0.08183562, z: 0.15006791}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6189545915625785115}
@@ -799,6 +844,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9055685711891642514}
+  - component: {fileID: 9205923910038438748}
+  - component: {fileID: 3052262557876173153}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -824,6 +871,49 @@ Transform:
   - {fileID: 1175584972386285679}
   m_Father: {fileID: 5158228379050091486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9205923910038438748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813674841732459896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df4d49e60effea40b0358d6f26f72b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
+  damage: 10
+  curAmmo: 20
+  maxAmmo: 50
+  bulletSpeed: 75
+  shootRate: 0.1
+  player: {fileID: 3558343417345572716}
+  weaponObj: {fileID: 3813674841732459896}
+  bulletPrefab: {fileID: 4983307974388747700, guid: e3f362931408b0b4a98a6383868106f9, type: 3}
+  bulletSpawnPos: {fileID: 1175584972386285679}
+--- !u!114 &3052262557876173153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813674841732459896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3831061695555753764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,8 +1119,8 @@ Transform:
   m_GameObject: {fileID: 5090381017004126553}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.102207124, w: 0.9947632}
-  m_LocalPosition: {x: -0.0074, y: -0.0098, z: 1.254}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0074, y: -0.0098, z: 1.6315}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6189545915625785115}
@@ -1062,7 +1152,7 @@ Transform:
   m_GameObject: {fileID: 5185396585639093324}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.53}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5331}
   m_LocalScale: {x: 0.11476413, y: 0.034742944, z: 0.11476413}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1319,8 +1409,6 @@ GameObject:
   - component: {fileID: 2964713166114041803}
   - component: {fileID: 2032221774241682639}
   - component: {fileID: 3558343417345572716}
-  - component: {fileID: 3367097702875743057}
-  - component: {fileID: 6995380911842032472}
   - component: {fileID: 8300891526640309449}
   - component: {fileID: 7382441882278399201}
   m_Layer: 0
@@ -1475,47 +1563,9 @@ MonoBehaviour:
   mr: {fileID: 3491250276869313899}
   rig: {fileID: 2032221774241682639}
   id: 0
-  weaponMain: {fileID: 3367097702875743057}
-  weaponSecondary: {fileID: 6995380911842032472}
-  activeWeapon: {fileID: 3367097702875743057}
---- !u!114 &3367097702875743057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278816445933392279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7df4d49e60effea40b0358d6f26f72b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
-  damage: 50
-  curAmmo: 1
-  maxAmmo: 3
-  bulletSpeed: 50
-  shootRate: 3
-  bulletPrefab: {fileID: 657742456314831985, guid: d756da8be8093454aa75e1e37b9c191b, type: 3}
-  bulletSpawnPos: {fileID: 4486878704238939677}
---- !u!114 &6995380911842032472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8278816445933392279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7df4d49e60effea40b0358d6f26f72b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
-  damage: 20
-  curAmmo: 15
-  maxAmmo: 50
-  bulletSpeed: 75
-  shootRate: 0.1
-  bulletPrefab: {fileID: 4983307974388747700, guid: e3f362931408b0b4a98a6383868106f9, type: 3}
-  bulletSpawnPos: {fileID: 1175584972386285679}
+  weaponMain: {fileID: 556828245251301006}
+  weaponSecondary: {fileID: 9205923910038438748}
+  activeWeapon: {fileID: 556828245251301006}
 --- !u!114 &8300891526640309449
 MonoBehaviour:
   m_ObjectHideFlags: 0

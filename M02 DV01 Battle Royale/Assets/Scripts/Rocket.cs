@@ -16,12 +16,17 @@ public class Rocket : IProjectile {
     }
 
     private void OnTriggerEnter (Collider other) {
-        photonView.RPC("Expand", RpcTarget.All);
+        photonView.RPC("RunEnumerator", RpcTarget.All);
+        // RunEnumerator();
         Destroy(rig);
     }
 
     [PunRPC]
-    IEnumerator Expand() {
+    private void RunEnumerator() {
+        StartCoroutine(Expand());
+    }
+
+    private IEnumerator Expand() {
         explosion.gameObject.SetActive(true);
 
         while (explosion.transform.localScale.x < 3.0f) {

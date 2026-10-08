@@ -2,7 +2,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class PlayerWeapon : MonoBehaviour {
+public class PlayerWeapon : MonoBehaviourPun {
     [Header("Stats")]
     public int damage;
     public int curAmmo;
@@ -12,14 +12,10 @@ public class PlayerWeapon : MonoBehaviour {
 
     private float lastShootTime;
     
+    public PlayerController player;
+    public GameObject weaponObj;
     public GameObject bulletPrefab;
     public Transform bulletSpawnPos;
-    
-    private PlayerController player;
-    
-    void Awake () {
-        player = GetComponent<PlayerController>();
-    }
 
     public void TryShoot() {
         if (curAmmo <= 0 || Time.time - lastShootTime < shootRate) {
@@ -29,7 +25,7 @@ public class PlayerWeapon : MonoBehaviour {
         curAmmo--;
         lastShootTime = Time.time;
 
-        player.photonView.RPC("SpawnBullet", RpcTarget.All, bulletSpawnPos.transform.position, Camera.main.transform.forward);
+        photonView.RPC("SpawnBullet", RpcTarget.All, bulletSpawnPos.transform.position, Camera.main.transform.forward);
 
         GameUI.instance.UpdateAmmoText();
     }
