@@ -4511,7 +4511,7 @@ MonoBehaviour:
   shrinkAmount: 20
   shrinkDuration: 10
   minShrinkAmount: 30
-  playerDamage: 2
+  playerDamage: 10
 --- !u!1 &521099688 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 25bc05091fb8e37409c1ff521d8fba42, type: 3}

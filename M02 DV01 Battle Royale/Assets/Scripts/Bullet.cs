@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : IProjectile {
     private int damage;
     private int attackerId;
     private bool isMine;
-    public Rigidbody rig;
 
-    public void Initialize (int damage, int attackerId, bool isMine) {
+    public override void Initialize (int damage, int attackerId, bool isMine) {
         this.damage = damage;
         this.attackerId = attackerId;
         this.isMine = isMine;

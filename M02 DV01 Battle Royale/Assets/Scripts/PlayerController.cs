@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviourPun {
     public int id;
     public Player photonPlayer;
     private int curAttackId;
-    public PlayerWeapon weapon;
+    public PlayerWeapon weaponMain;
+    public PlayerWeapon weaponSecondary;
+    public PlayerWeapon activeWeapon;
 
     private void Update() {
         if (!photonView.IsMine || dead) {
@@ -35,7 +37,16 @@ public class PlayerController : MonoBehaviourPun {
         }
         
         if (Input.GetMouseButtonDown(0)) {
-            weapon.TryShoot();
+            activeWeapon.TryShoot();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            Debug.Log("Swapped weapons");
+            photonView.RPC("ChangeWeapon", RpcTarget.Others, 1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            Debug.Log("Swapped weapons");
+            photonView.RPC("ChangeWeapon", RpcTarget.Others, 2);
         }
     }
 
@@ -144,5 +155,25 @@ public class PlayerController : MonoBehaviourPun {
         curHp = Mathf.Clamp(curHp + amountToHeal, 0, maxHp);
 
         GameUI.instance.UpdateHealthBar();
+    }
+
+    [PunRPC]
+    public void LaunchPlayer(Vector3 startPoint, float launchForce) {
+        Vector3 direction = this.transform.position - startPoint;
+        rig.AddForce(direction.normalized * launchForce, ForceMode.VelocityChange);
+    }
+
+    [PunRPC]
+    public void ChangeWeapon(int index) {
+        activeWeapon.gameObject.SetActive(false);
+        
+        if (index == 1) {
+            activeWeapon = weaponMain;
+        }
+        else if (index == 2) {
+            activeWeapon = weaponSecondary;
+        }
+
+        activeWeapon.gameObject.SetActive(true);
     }
 }
