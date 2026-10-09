@@ -1,6 +1,8 @@
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviourPun {
     [Header("Look Sensitivity")]
     public float sensX;
     public float sensY;
@@ -16,6 +18,7 @@ public class CameraController : MonoBehaviour {
     private float rotY;
 
     private bool isSpectator;
+    public bool weapon;
 
     private void Start() {
         Cursor.lockState = CursorLockMode.Locked;
@@ -43,9 +46,14 @@ public class CameraController : MonoBehaviour {
             Vector3 dir = transform.right * x + transform.up * y + transform.forward * z;
             transform.position += dir * spectatorMoveSpeed * Time.deltaTime;
         }
-        else {
+        else if (photonView.IsMine) {
             transform.localRotation = Quaternion.Euler(-rotY, 0, 0);
-            transform.parent.rotation = Quaternion.Euler(transform.rotation.x, rotX, 0);
+            if (!weapon) {
+                transform.parent.rotation = Quaternion.Euler(transform.rotation.x, rotX, 0);
+            }
+            else {
+                transform.rotation = Quaternion.Euler(-rotY, rotX, 0);
+            }
         }
     }
 

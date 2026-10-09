@@ -1,7 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 
-public enum PickupType { Health, Ammo }
+public enum PickupType { Health, Ammo, Launchpad }
 
 public class Pickup : MonoBehaviour {
     public PickupType type;
@@ -19,7 +19,10 @@ public class Pickup : MonoBehaviour {
                 player.photonView.RPC("Heal", player.photonPlayer, value);
             }
             else if (type == PickupType.Ammo) {
-                player.photonView.RPC("GiveAmmo", player.photonPlayer, value);
+                player.activeWeapon.photonView.RPC("GiveAmmo", player.photonPlayer, value);
+            }
+            else if (type == PickupType.Launchpad) {
+                player.photonView.RPC("LaunchPlayer", player.photonPlayer, player.transform.position + Vector3.down, (float)value);
             }
 
             PhotonNetwork.Destroy(gameObject);

@@ -127,7 +127,8 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks {
         for (int i = 0; i < roomList.Count; ++i) {
             GameObject button = (i >= roomButtons.Count) ? CreateRoomButton() : roomButtons[i];
             button.SetActive(true);
-            button.transform.Find("RoomNameText").GetComponent<TextMeshProUGUI>().text = roomList[i].PlayerCount + " / " + roomList[i].MaxPlayers;
+            button.transform.Find("RoomNameText").GetComponent<TextMeshProUGUI>().text = roomList[i].Name;
+            button.transform.Find("PlayerCountText").GetComponent<TextMeshProUGUI>().text = roomList[i].PlayerCount + " / " + roomList[i].MaxPlayers;
 
             Button buttonComp = button.GetComponent<Button>();
             string roomName = roomList[i].Name;

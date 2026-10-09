@@ -238,8 +238,8 @@ MonoBehaviour:
   damage: 50
   curAmmo: 3
   maxAmmo: 5
-  bulletSpeed: 50
-  shootRate: 3
+  bulletSpeed: 35
+  shootRate: 1.5
   player: {fileID: 3558343417345572716}
   weaponObj: {fileID: 1431748817792585595}
   bulletPrefab: {fileID: 657742456314831985, guid: d756da8be8093454aa75e1e37b9c191b, type: 3}
@@ -403,11 +403,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3091bd48e5420b24e926aa239624e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  sensX: 10
-  sensY: 10
+  sensX: 7
+  sensY: 7
   minY: -90
   maxY: 90
   spectatorMoveSpeed: 10
+  weapon: 1
 --- !u!114 &7998193794536138234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,7 +424,7 @@ MonoBehaviour:
   m_SynchronizePosition: 0
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!1 &2149478858851978700
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +770,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.34117648, g: 1, b: 0.89411765, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -830,11 +831,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3091bd48e5420b24e926aa239624e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  sensX: 10
-  sensY: 10
+  sensX: 7
+  sensY: 7
   minY: -90
   maxY: 90
   spectatorMoveSpeed: 10
+  weapon: 0
 --- !u!1 &3813674841732459896
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,9 +885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df4d49e60effea40b0358d6f26f72b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapon
-  damage: 10
-  curAmmo: 20
-  maxAmmo: 50
+  damage: 15
+  curAmmo: 50
+  maxAmmo: 75
   bulletSpeed: 75
   shootRate: 0.1
   player: {fileID: 3558343417345572716}
@@ -1119,7 +1121,7 @@ Transform:
   m_GameObject: {fileID: 5090381017004126553}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.102207124, w: 0.9947632}
-  m_LocalPosition: {x: -0.0074, y: -0.0098, z: 1.6315}
+  m_LocalPosition: {x: -0.0074, y: -0.0098, z: 1.172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1554,8 +1556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eedcb46db00e1c4db26b707cb3651d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 10
-  jumpForce: 7
+  moveSpeed: 5
+  jumpForce: 5
   curHp: 100
   maxHp: 100
   kills: 0

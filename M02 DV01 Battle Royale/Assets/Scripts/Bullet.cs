@@ -12,7 +12,7 @@ public class Bullet : IProjectile {
         Destroy(gameObject, 5.0f);
     }
 
-    private void OnTriggerEnter (Collider other) {
+    private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player") && isMine) {
             PlayerController player = GameManager.instance.GetPlayer(other.gameObject);
             

@@ -164,7 +164,8 @@ public class PlayerController : MonoBehaviourPun {
     [PunRPC]
     public void LaunchPlayer(Vector3 startPoint, float launchForce) {
         Vector3 direction = this.transform.position - startPoint;
-        rig.AddForce(direction.normalized * launchForce, ForceMode.VelocityChange);
+        Debug.Log(direction.normalized);
+        rig.AddForce(direction.normalized * launchForce, ForceMode.Impulse);
     }
 
     [PunRPC]
@@ -179,5 +180,6 @@ public class PlayerController : MonoBehaviourPun {
         }
 
         activeWeapon.weaponObj.SetActive(true);
+        GameUI.instance.UpdateAmmoText();
     }
 }
