@@ -1,1 +1,1 @@
-https://g-ruddick.github.io/M02-DV01--Battle-Royale/
+Must download repo and use windows build to play
